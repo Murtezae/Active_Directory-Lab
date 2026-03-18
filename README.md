@@ -19,7 +19,7 @@ A fully functional on-premises Active Directory environment built from scratch f
 
 ## Lab Diagram
 
-![Lab Diagram](screenshots/1_lab_diagram.png)
+![Lab Diagram](/images/Diagram.png)
 
 The lab uses a NAT network (`192.168.10.0/24`) with four virtual machines running in VirtualBox.
 
@@ -85,7 +85,7 @@ source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 
 In the Splunk web UI, created an index named `endpoint` to match the config above, then enabled receiving on port `9997`. This same setup was repeated on ADDC01. With both machines forwarding logs, searching `index="endpoint"` confirmed the full pipeline was working.
 
-![Data in Splunk](screenshots/15_data_in_splunk.png)
+![Data in Splunk](/images/splunk.png)
 
 ---
 
@@ -124,7 +124,7 @@ hydra -t 4 -l jsmith -P passwords.txt rdp://192.168.10.100
 
 Hydra successfully found the valid credential.
 
-![Hydra brute force success](screenshots/30_hydra_success.png)
+![Hydra brute force success](/images/hydra.png)
 
 ### Detection in Splunk
 
@@ -140,7 +140,7 @@ index=endpoint jsmith
 
 The 25 failed attempts map directly to the passwords in `passwords.txt`. Multiple 4625s in rapid succession from the same source IP is a clear brute force indicator. Expanding the 4624 event also revealed the source workstation name and IP pointing directly back to the Kali machine.
 
-![Splunk brute force detection](screenshots/31_splunk_brute_force.png)
+![Splunk brute force detection](/images/eventcode.png)
 
 ---
 
@@ -167,7 +167,7 @@ index=endpoint NewLocalUser
 
 Splunk returned 12 events confirming the account creation was captured via Windows Security logs.
 
-![NewLocalUser in Splunk](screenshots/36_splunk_new_local_user.png)
+![NewLocalUser in Splunk](/images/image5.png)
 
 ---
 
