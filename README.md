@@ -171,10 +171,10 @@ Splunk returned 12 events confirming the account creation was captured via Windo
 
 ## Key Takeaways
 
-- **Sysmon dramatically improves endpoint visibility** — without it, many process creation and network events would go unlogged.
-- **Brute force attacks are noisy** — multiple Event ID 4625s in a short window from the same source IP is a reliable detection signal.
-- **Atomic Red Team exposes visibility gaps** — if a technique generates no Splunk events, that is a gap to investigate, not a sign nothing happened.
-- **DNS misconfiguration prevents domain joins** — the target machine's DNS must point to the Domain Controller before attempting to join.
+- **Sysmon dramatically improves endpoint visibility.**  Without it, many process creation and network events would go unlogged.
+- **Brute force attacks are noisy.**  Multiple Event ID 4625s in a short amount of time from the same source IP is a reliable detection signal.
+- **Atomic Red Team exposes visibility gaps.**  If a technique generates no Splunk events, that shows a flaw in the detection, not that nothing is happening.
+- **DNS misconfiguration prevents domain joins.**  The target machine's DNS must point to the Domain Controller before attempting to join.
 
 ---
 
