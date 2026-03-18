@@ -42,7 +42,7 @@ The lab uses a NAT network (`192.168.10.0/24`) with four virtual machines runnin
 
 Configured a static IP on the Ubuntu Splunk server via Netplan, then installed Splunk Enterprise and enabled it to start on boot:
 ```bash
-sudo dpkg -i splunk-<version>-linux-amd64.deb
+sudo dpkg -i splunk-10.2.0-linux-amd64.deb
 cd /opt/splunk/bin
 sudo ./splunk start
 sudo ./splunk enable boot-start -user splunk
@@ -108,10 +108,8 @@ Updated the Windows 10 machine's DNS to point to the domain controller (`192.168
 
 ## Part 4 — Brute Force Attack with Kali Linux
 
-Configured Kali Linux with a static IP of `192.168.10.250`, enabled RDP on the Windows 10 target for both domain users, then set up the attack:
+Configured Kali Linux with a static IP of `192.168.10.250`, enabled RDP on the Windows 10 target for both domain users, then set up the attack using hydra:
 ```bash
-# Install crowbar
-sudo apt-get install -y crowbar
 
 # Build a wordlist from rockyou (top 20 + known target password appended)
 head -n 20 /usr/share/wordlists/rockyou.txt > passwords.txt
